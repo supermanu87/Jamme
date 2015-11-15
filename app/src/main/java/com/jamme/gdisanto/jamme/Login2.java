@@ -35,7 +35,7 @@ public class Login2 extends Activity {
     // Progress Dialog
     private ProgressDialog pDialog;
 
-    private static final String LOGIN_URL = "http://192.168.1.4:8080/login.php";
+    private static final String LOGIN_URL = "http://192.168.1.3:8080/login.php";
 
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
@@ -49,7 +49,7 @@ public class Login2 extends Activity {
         setContentView(R.layout.main);
         un=(EditText)findViewById(R.id.et_un);
         pw=(EditText)findViewById(R.id.et_pw);
-        ok=(Button)findViewById(R.id.btn_login);
+        ok=(Button)findViewById(R.id.button_login);
         error=(TextView)findViewById(R.id.tv_error);
 
         ok.setOnClickListener(new View.OnClickListener() {
