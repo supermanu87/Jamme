@@ -30,15 +30,19 @@ import com.jamme.gdisanto.jamme.JSON.JSONParser;
 public class Login2 extends Activity {
     EditText un,pw;
     TextView error;
-    Button ok;
+    Button ok, signup, anonim;
 
     // Progress Dialog
     private ProgressDialog pDialog;
 
-    private static final String LOGIN_URL = "http://192.168.1.3:8080/login.php";
+    private static final String LOGIN_URL           = "http://192.168.1.3:8080/login.php";
 
-    private static final String TAG_SUCCESS = "success";
-    private static final String TAG_MESSAGE = "message";
+    private static final String TAG_SUCCESS         = "success";
+    private static final String TAG_MESSAGE         = "message";
+    private static final String INVALID_CREDENTIAL  = "Username o password non validi!";
+    private String username, password;
+
+
     // JSON parser class
     JSONParser jsonParser = new JSONParser();
 
@@ -50,6 +54,9 @@ public class Login2 extends Activity {
         un=(EditText)findViewById(R.id.et_un);
         pw=(EditText)findViewById(R.id.et_pw);
         ok=(Button)findViewById(R.id.button_login);
+        signup=(Button)findViewById(R.id.button_signup);
+        anonim=(Button)findViewById(R.id.button_anonimous);
+
         error=(TextView)findViewById(R.id.tv_error);
 
         ok.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +64,27 @@ public class Login2 extends Activity {
             @Override
             public void onClick(View v) {
 
-                new AttemptLogin().execute();
+                username = un.getText().toString();
+                password = pw.getText().toString();
+
+                if (username.isEmpty() || password.isEmpty()) {
+                    Log.d("FIGA", "Username o password nulli");
+                    Toast.makeText(Login2.this, INVALID_CREDENTIAL, Toast.LENGTH_LONG).show();
+
+                } else {
+                    new AttemptLogin().execute();
+                }
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Login2.this, Signup.class);
+
+                startActivity(i);
 
             }
         });
@@ -81,8 +108,7 @@ public class Login2 extends Activity {
             // TODO Auto-generated method stub
             // Check for success tag
             int success;
-            String username = un.getText().toString();
-            String password = pw.getText().toString();
+
             try {
                 // Building Parameters
                 List<NameValuePair> params = new ArrayList<NameValuePair>();

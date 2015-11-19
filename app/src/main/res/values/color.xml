@@ -4,6 +4,8 @@
     <!-- Absolute colors -->
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
+    <color name="orange">#FF4000</color>
+    <color name="light_orange">#FE9A2E</color>
     <color name="blue">#0000FF</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
