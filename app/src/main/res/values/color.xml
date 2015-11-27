@@ -12,7 +12,9 @@
     <color name="grey">#BBBBBB</color>
     <color name="light_grey">#EEEEEE</color>
     <color name="dark_grey">#555555</color>
-
+    <color name="ColorPrimary">#00897B</color>
+    <color name="ColorPrimaryDark">#00695C</color>
+    <color name="tabsScrollColor">#004D40</color>
     <!-- Application colors -->
     <string name="error_message_color">#FF0000</string>
 

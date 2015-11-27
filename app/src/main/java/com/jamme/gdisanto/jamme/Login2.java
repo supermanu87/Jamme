@@ -35,7 +35,7 @@ public class Login2 extends Activity {
     // Progress Dialog
     private ProgressDialog pDialog;
 
-    private static final String LOGIN_URL           = "http://192.168.1.3:8080/login.php";
+    private static final String LOGIN_URL           = "http://192.168.1.152:8080/login.php";
 
     private static final String TAG_SUCCESS         = "success";
     private static final String TAG_MESSAGE         = "message";
@@ -88,6 +88,20 @@ public class Login2 extends Activity {
 
             }
         });
+
+        anonim.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Login2.this, MainActivity.class);
+
+                startActivity(i);
+
+            }
+        });
+
+
     }
 
 
@@ -133,7 +147,7 @@ public class Login2 extends Activity {
                     SharedPreferences.Editor edit = sp.edit();
                     edit.putString("username", username);
                     edit.commit();
-                    Intent i = new Intent(Login2.this, Collector.class);
+                    Intent i = new Intent(Login2.this, MainActivity.class);
                     i.putExtra("username", un.getText());
 
                     finish();
